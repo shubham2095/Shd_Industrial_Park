@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette - blueprint/masterplan direction, sourced from SHD logo greens */
+  --color-forest-950: #0b3d1f;
+  --color-forest-700: #1b5e20;
+  --color-forest-500: #3f7d44;
+  --color-gold-500: #c9a227;
+  --color-gold-300: #e2c161;
+  --color-paper: #f7f5ef;
+  --color-ink-900: #12140f;
+  --color-forest-300: #86bf8a;
+
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-ink-900);
+  background: var(--color-paper);
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid var(--color-gold-500);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient-text {
+  background-size: 200% auto;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201,162,39,0.45), 0 4px 16px rgba(201,162,39,0.3); }
+  50% { box-shadow: 0 0 0 6px rgba(201,162,39,0), 0 4px 20px rgba(201,162,39,0.45); }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2.5s ease-in-out infinite;
+}
